@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="20" id="xaO-Ks-bEw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="m4K-9i-bmN">
@@ -57,7 +57,8 @@
                                     <constraint firstAttribute="width" constant="120" id="5o0-tj-dab"/>
                                 </constraints>
                                 <state key="normal" title="Change Filter">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="changeFilter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XYL-c4-rdW"/>
@@ -69,6 +70,7 @@
                                     <constraint firstAttribute="width" constant="60" id="dbi-J9-JKZ"/>
                                 </constraints>
                                 <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -76,7 +78,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XRS-sv-LVA" firstAttribute="top" secondItem="m4K-9i-bmN" secondAttribute="bottom" constant="2" id="35O-FV-0f7"/>
                             <constraint firstItem="m4K-9i-bmN" firstAttribute="top" secondItem="mzm-cN-7zi" secondAttribute="bottom" constant="14" id="4sw-bb-CLZ"/>
