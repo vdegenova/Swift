@@ -83,16 +83,16 @@ class GameScene: SKScene {
         slots.append(slot)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
-        let touch = touches.anyObject() as UITouch
+        let touch = touches.first as! UITouch
         let location = touch.locationInNode(self)
-        let nodes = nodesAtPoint(location) as [SKNode]
+        let nodes = nodesAtPoint(location) as! [SKNode]
         
         for node in nodes {
             if node.name == "charFriend" {
                 //shouldnt have whacked
-                let whackSlot = node.parent!.parent as WhackSlot
+                let whackSlot = node.parent!.parent as! WhackSlot
                 if !whackSlot.visible { continue }
                 if whackSlot.isHit { continue }
                 
@@ -103,7 +103,7 @@ class GameScene: SKScene {
             }
             else if node.name == "charEnemy" {
                 //should whack this one
-                let whackSlot = node.parent!.parent as WhackSlot
+                let whackSlot = node.parent!.parent as! WhackSlot
                 if !whackSlot.visible { continue }
                 if whackSlot.isHit { continue }
                 

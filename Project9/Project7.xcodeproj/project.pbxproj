@@ -14,7 +14,7 @@
 		078412CF1ADC93BC00989DB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078412CE1ADC93BC00989DB8 /* Images.xcassets */; };
 		078412D21ADC93BC00989DB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 078412D01ADC93BC00989DB8 /* LaunchScreen.xib */; };
 		078412DE1ADC93BE00989DB8 /* Project7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078412DD1ADC93BE00989DB8 /* Project7Tests.swift */; };
-		07E6B26B1ADC946F00846A50 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6B26A1ADC946F00846A50 /* SwiftyJSON.swift */; };
+		07A0BC9A1AF6A34D00996825 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0BC991AF6A34D00996825 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		078412D71ADC93BC00989DB8 /* Project7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		078412DC1ADC93BD00989DB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		078412DD1ADC93BE00989DB8 /* Project7Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project7Tests.swift; sourceTree = "<group>"; };
-		07E6B26A1ADC946F00846A50 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		07A0BC991AF6A34D00996825 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 			children = (
 				078412C51ADC93BB00989DB8 /* AppDelegate.swift */,
 				078412C71ADC93BB00989DB8 /* MasterViewController.swift */,
+				07A0BC991AF6A34D00996825 /* SwiftyJSON.swift */,
 				078412C91ADC93BB00989DB8 /* DetailViewController.swift */,
-				07E6B26A1ADC946F00846A50 /* SwiftyJSON.swift */,
 				078412CB1ADC93BB00989DB8 /* Main.storyboard */,
 				078412CE1ADC93BC00989DB8 /* Images.xcassets */,
 				078412D01ADC93BC00989DB8 /* LaunchScreen.xib */,
@@ -221,7 +221,7 @@
 				078412CA1ADC93BB00989DB8 /* DetailViewController.swift in Sources */,
 				078412C81ADC93BB00989DB8 /* MasterViewController.swift in Sources */,
 				078412C61ADC93BB00989DB8 /* AppDelegate.swift in Sources */,
-				07E6B26B1ADC946F00846A50 /* SwiftyJSON.swift in Sources */,
+				07A0BC9A1AF6A34D00996825 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

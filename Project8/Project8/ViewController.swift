@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         for subview in view.subviews {
             if subview.tag == 1001 {
-                let btn = subview as UIButton
+                let btn = subview as! UIButton
                 letterButtons.append(btn)
                 btn.addTarget(self, action: "letterTapped:", forControlEvents: .TouchUpInside)
             }
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
                 var lines = levelContents.componentsSeparatedByString("\n")
                 lines.shuffle()
                 
-                for (index, line) in enumerate(lines as [String]) {
+                for (index, line) in enumerate(lines as! [String]) {
                     var parts = line.componentsSeparatedByString(":")
                     var answer = parts[0]
                     var clue = parts[1]
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
                     clueString += "\(index + 1). \(clue)\n"
                     
                     let solutionWord = answer.stringByReplacingOccurrencesOfString("|", withString: "")
-                    solutionString += "\(countElements(solutionWord)) letters\n"
+                    solutionString += "\(count(solutionWord)) letters\n"
                     solutions.append(solutionWord)
                     
                     let bits = answer.componentsSeparatedByString("|")

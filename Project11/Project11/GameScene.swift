@@ -68,11 +68,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
-        if let touch = touches.anyObject() as? UITouch {
+        if let touch = touches.first as? UITouch {
             let location = touch.locationInNode(self)
-            let objects = nodesAtPoint(location) as [SKNode]
+            let objects = nodesAtPoint(location) as! [SKNode]
             if contains(objects, editLabel) {
                 editingMode = !editingMode
             }
@@ -80,7 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if editingMode {
                     if location.y < 500 {
                         var removed: Bool = false
-                        let boxes = nodesAtPoint(location) as [SKNode]
+                        let boxes = nodesAtPoint(location) as! [SKNode]
                         for node in boxes {
                             if node.name == "box" {
                                 node.removeFromParent()
@@ -173,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func destroyBall(ball: SKNode) {
         if let fireParticlePath = NSBundle.mainBundle().pathForResource("FireParticles", ofType: "sks") {
-            let fireParticles = NSKeyedUnarchiver.unarchiveObjectWithFile(fireParticlePath) as SKEmitterNode
+            let fireParticles = NSKeyedUnarchiver.unarchiveObjectWithFile(fireParticlePath) as! SKEmitterNode
             fireParticles.position = ball.position
             addChild(fireParticles)
         }

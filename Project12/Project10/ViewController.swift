@@ -20,7 +20,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if let savedPeople = defaults.objectForKey("people") as? NSData {
-            people = NSKeyedUnarchiver.unarchiveObjectWithData(savedPeople) as [Person]
+            people = NSKeyedUnarchiver.unarchiveObjectWithData(savedPeople) as! [Person]
         }
     }
     
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func getDocumentsDirectory() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as [String]
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as! [String]
         let documentsDirectory = paths[0]
         return documentsDirectory
     }
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Person", forIndexPath: indexPath) as PersonCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Person", forIndexPath: indexPath) as! PersonCell
         
         let person = people[indexPath.item]
         cell.name.text = person.name
@@ -102,7 +102,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         ac.addAction(UIAlertAction(title: "OK", style: .Default) { [unowned self, ac] _ in
             
-            let newName = ac.textFields![0] as UITextField
+            let newName = ac.textFields![0] as! UITextField
             person.name = newName.text
             self.collectionView.reloadData()
             self.save()
