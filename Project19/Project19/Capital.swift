@@ -14,6 +14,7 @@ class Capital: NSObject, MKAnnotation {
     var title: String
     var coordinate: CLLocationCoordinate2D
     var info: String
+    var favorite: Bool = false
    
     init(title: String, coordinate: CLLocationCoordinate2D, info: String) {
         self.title = title

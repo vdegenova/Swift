@@ -57,18 +57,32 @@ class ViewController: UIViewController {
         
         let identifier = "Capital"
         
+        //if the annotation is a Capital
         if annotation.isKindOfClass(Capital.self) {
-            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
             
+            //if we didnt get a view to reuse, create one
             if annotationView == nil {
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView.canShowCallout = true
+                annotationView!.canShowCallout = true
                 
+                //add the info button
                 let btn = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIButton
-                annotationView.rightCalloutAccessoryView = btn
+                annotationView!.rightCalloutAccessoryView = btn
                 
-            } else {
-                annotationView.annotation = annotation
+                //add the favorite button
+                let fav = UIButton.buttonWithType(UIButtonType.ContactAdd) as! UIButton
+                annotationView!.leftCalloutAccessoryView = fav
+                
+            }else {
+                //otherwise reuse the annotation
+                annotationView!.annotation = annotation
+            }
+            //set the color based on the favorite status
+            let capital = annotation as? Capital
+            
+            if capital!.favorite {
+                annotationView!.pinColor = .Green
             }
             
             return annotationView
@@ -78,15 +92,30 @@ class ViewController: UIViewController {
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        
+        let btn = control as! UIButton
+        
         let capital = view.annotation as! Capital
         let placeName = capital.title
         let placeInfo = capital.info
         
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: UIAlertControllerStyle.Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        if btn.buttonType == UIButtonType.DetailDisclosure {
+            //if the detail button was clicked
+            let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: UIAlertControllerStyle.Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            
+        } else{
+            //otherwise the favorite button was clicked
+            capital.favorite = true
+            redrawPins(view.annotation)
+        }
     }
 
+    func redrawPins(annotation: MKAnnotation) {
+        mapView.removeAnnotation(annotation)
+        mapView.addAnnotation(annotation)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
