@@ -92,6 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             viewController.presentViewController(ac, animated: true, completion: nil)
             //next level
             
+            loadlevel()
             createPlayer()
         }
     }
